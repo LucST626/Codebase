@@ -26,10 +26,14 @@
             y: mouseY,
         }
           socket.emit("paint", data)
-          fill(0, 0, 0)
-          ellipse(mouseX, mouseY, 20)
     }
   }
+
+  socket.on ('paint', (data)=>{
+       console.log('received paint message')
+       fill(data.c, data.x, data.y)
+       ellipse(data.x, data.y, 20)
+     })
     </script>
   </body>
 </html>
